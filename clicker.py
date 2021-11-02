@@ -18,7 +18,7 @@ def show_records():
 def show_about():
     mb.showinfo(message="Сделал РОББО")
 
-def clicker():
+def clicker(root):
     def entry_clear(z):
         name_entry.delete(0,END)
 
@@ -58,13 +58,18 @@ def clicker():
     root.resizable(False, False)
     icon_img = PhotoImage(file="hummer.png")
     root.iconposition(100, 50)
-    root.iconphoto(False, icon_img)
+    # root.iconphoto(False, icon_img)
 
     bg = ImageTk.PhotoImage(file = 'earth.jpg')
-    btn_bg = ImageTk.PhotoImage(file = 'earth2.jpg')
+    # btn_bg = ImageTk.PhotoImage(file = 'earth2.jpg')
     my_canvas = Canvas(root, width = 400, height = 300,  highlightthickness = 0)
+    # my_canvas.image = bg
+    # my_canvas.create_image(-100, -100, image=bg, anchor='nw')
+
     my_canvas.pack()
-    my_canvas.create_image(-100,-100, image = bg, anchor = 'nw')
+
+
+
     """
     Создаём панель меню под заголовком окна
     """
@@ -86,7 +91,7 @@ def clicker():
     mainmenu.add_cascade(label = "Справка",menu=refmenu)
 
 
-    btn = Button(text="Жми сюда!",
+    btn = Button(root, text="Жми сюда!",
                  font=("Comic Sans", 15, 'bold'),
                  width=10,
                  height=3,
@@ -95,12 +100,12 @@ def clicker():
                  relief=SOLID,
                  bd=10,
                  command=on_click,
-                 image = btn_bg,
+                 # image = btn_bg,
                  compound = CENTER,
                  padx = 70,
                  pady=10
                  )
-    lbl = Label(text="Кликов\n0",
+    lbl = Label(root, text="Кликов\n0",
                 font=("Comic Sans", 15, 'bold'),
                 width=10,
                 height=3,
