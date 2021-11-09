@@ -1,8 +1,8 @@
-from tkinter import *
 from clicker import *
 
 def start_game1():
     game1_wind = Toplevel(tk)
+    game1_wind.wm_attributes('-topmost',1)
     clicker(game1_wind)
 
 def records():
