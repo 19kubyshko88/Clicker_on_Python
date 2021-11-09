@@ -53,18 +53,18 @@ def clicker(root):
                 lbl.config(text=f"Кликов\n0")
                 global_vars.cc=0
 
-    root = Tk()
+    # root = Tk()
     root.geometry('400x300+250+200')
     root.resizable(False, False)
     icon_img = PhotoImage(file="hummer.png")
     root.iconposition(100, 50)
-    # root.iconphoto(False, icon_img)
+    root.iconphoto(False, icon_img)
 
     bg = ImageTk.PhotoImage(file = 'earth.jpg')
     # btn_bg = ImageTk.PhotoImage(file = 'earth2.jpg')
     my_canvas = Canvas(root, width = 400, height = 300,  highlightthickness = 0)
-    # my_canvas.image = bg
-    # my_canvas.create_image(-100, -100, image=bg, anchor='nw')
+    my_canvas.image = bg
+    my_canvas.create_image(-100, -100, image=bg, anchor='nw')
 
     my_canvas.pack()
 
@@ -105,6 +105,7 @@ def clicker(root):
                  padx = 70,
                  pady=10
                  )
+
     lbl = Label(root, text="Кликов\n0",
                 font=("Comic Sans", 15, 'bold'),
                 width=10,
@@ -124,13 +125,14 @@ def clicker(root):
 
     # lbl.pack()
     # btn.pack()
+    #root.mainloop()
 
-    root.mainloop()
 
 
 if __name__ == "__main__":
-    clicker()
-
+    root = Tk()
+    clicker(root)
+    root.mainloop()
 
 
 
